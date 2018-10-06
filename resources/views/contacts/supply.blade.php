@@ -1,3 +1,4 @@
+@extends('templates.default')
 @section('js')
 <script type="text/javascript">
 
@@ -31,25 +32,41 @@
        Send email to supplier
       </div>  
       <div class="x_content">
-          <form action="{{ route('contacts.supply') }}" class="" method="post" enctype="multipart/form-data">
+      <form action="{{ route('contacts.store') }}" method=post enctype="multipart/form-data" >
           {{ csrf_field() }}
+         
                         <div class="form-group">
-                        <label>Name Supplier</label>
-                        <input type="" name="supplier_name" class="form-control" placeholder="Supplier Name.." value="{{ old('supplier_name') }}"/>  
-                        </div>
-                        <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" name="email" class="form-control" placeholder="Emai.." value="{{ old('email') }}"/>  
+                        <label for="">Supplier Name</label>
+                        <select name="supplier_id" id="" class="form-control">
+                            @foreach ($suppliers as $supplier)
+                            <option value="{{ $supplier->id }}"> {{ $supplier->supplier_name }}</option>
+                            @endforeach
+                        </select>
                         </div>
 
+
+                  <!--
+                        <div class="form-group">
+                        <label>Email</label>
+                   
+                        <input type="text" name="email" class="form-control" placeholder="Emai.." value="{{ old('email') }}"/>  
+                        </div> -->
+                        <div class="form-group">
+                        <label for="">Email</label>
+                        <select name="supplier_id" id="" class="form-control">
+                            @foreach ($suppliers as $supplier)
+                            <option value="{{ $supplier->id }}"> {{ $supplier->email }}</option>
+                            @endforeach
+                        </select>
+                        </div>
                         <div class="form-group has-feedback{{ $errors->has('descriptions')? 'has-error':''}}">
                         <label for="">Descriptions</label>
                         <textarea name="descriptions" id="" class="form-control" cols="30" rows="5" placeholder="Add Descriptions" value="">{{ old('descriptions') }}</textarea>
                         @if ($errors->has('descriptions'))
                        <span class="help-block">
                        <p>{{ $errors->first('descriptions') }}</p>
-                     </span>
-                     @endif
+                       </span>
+                       @endif
                         </div>
 
           

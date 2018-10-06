@@ -100,3 +100,10 @@ Route::prefix('admin')->group(function(){
     }); 
 
     
+//connection
+
+Route::prefix('contacts')->group(function(){
+Route::get('suppply','ContactsupplierController@suppliercontact')->name('contacts.supply');
+Route::post('suppply','ContactsupplierController@suppliercontact')->name('contacts.supply');
+Route::post('store','ContactsupplierController@suppliercontactstore')->name('contacts.store');
+});

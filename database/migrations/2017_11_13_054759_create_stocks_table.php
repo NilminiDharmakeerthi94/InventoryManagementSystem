@@ -19,7 +19,6 @@ class CreateStocksTable extends Migration
             $table->integer('supplier_id')->unsigned();
             $table->integer('stocks');
             $table->timestamps();
-
             $table->foreign('item_id')->references('id')->on('items')->onDelete('CASCADE');
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('CASCADE');
         });

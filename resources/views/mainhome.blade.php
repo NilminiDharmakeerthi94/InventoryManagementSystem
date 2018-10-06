@@ -87,9 +87,10 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="title m-b-md">
-                            Hardware System
+                            
                         </div>
-                        <h3>Inventory Managemnt System</h3>
+                        <h3 align="center">Inventory Managemnt System
+                                      For Hardware System </h3>
                     </div>
                 </div>
             </div>
